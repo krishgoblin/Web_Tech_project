@@ -6,8 +6,8 @@
 
 .navbar {
   height: 60px;
-  background-color: #0f1111;
-  color: white;
+  background-color: #f6e7ea; /* Rose gold background */
+  color: #8c7176; /* Dark rose gold text */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -19,7 +19,7 @@
 }
 
 .logo {
-  background-image: url("images/amazon_logo.png");
+  background-image: url("");
   background-size: cover;
   height: 50px;
   width: 100px;
@@ -30,13 +30,11 @@
 }
 
 .border:hover {
-  border: 1.5px solid white;
+  border: 1.5px solid #8c7176; /* Dark rose gold border on hover */
 }
 
-/* **Box 2** */
-
 .add-first {
-  color: #cccccc;
+  color: #b3a7ab; /* Light rose gold text */
   font-size: 0.85rem;
   margin-left: 15px;
 }
@@ -51,19 +49,17 @@
   align-items: center;
 }
 
-/***Box 3***/
-
 .nav-search {
   display: flex;
   justify-content: space-evenly;
-  background-color: pink;
+  background-color: #f6e7ea; /* Rose gold background */
   height: 40px;
   border-radius: 4px;
   width: 60%;
 }
 
 .nav-search:hover {
-  border: 2px solid orange;
+  border: 2px solid #d6acb6; /* Light rose gold border on hover */
 }
 
 .search-select {
@@ -84,25 +80,14 @@
 .search-icon {
   width: 45px;
   font-size: 1.2rem;
-  color: #0f1111;
-  background-color: #febd68;
+  color: #4a383b; /* Dark rose gold text */
+  background-color: #d6acb6; /* Light rose gold background */
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-
-/* .language-select{
-  font-size: 1.2rem;
-  display: flex;
-  background-color: #0f1111;
-  justify-content: center;
-  border: none;
-  border-radius: 4px;
-} */
-
-/***Box 4***/
 
 span {
   font-size: 0.72rem;
@@ -113,17 +98,13 @@ span {
   font-weight: 700;
 }
 
-/***Box 6***/
-
 .nav-cart i {
   font-size: 25px;
 }
 
-/*** Panel ***/
-
 .panel {
   height: 40px;
-  background-color: #222f3d;
+  background-color: #4a383b; /* Dark rose gold background */
   display: flex;
   color: white;
   align-items: center;
@@ -145,11 +126,9 @@ span {
   font-weight: 700;
 }
 
-/***hero section***/
-
 .hero-section {
-  background-image: url("images/hero_image.jpg");
-  height: 450px;
+  background-image: url("jewelleryAssets/banner.webp");
+  height: 700px;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -157,8 +136,8 @@ span {
 }
 
 .hero-msg {
-  background-color: white;
-  color: black;
+  background-color: #fff; /* White background */
+  color: #4a383b; /* Dark rose gold text */
   height: 40px;
   display: flex;
   align-items: center;
@@ -172,19 +151,17 @@ span {
   color: #007185;
 }
 
-/*** shop section ***/
-
 .shop-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: #e2e7e6;
+  background-color: #f6e7ea; /* Rose gold background */
 }
 
 .box {
   height: 400px;
   width: 22%;
-  background-color: white;
+  background-color: #fff; /* White background */
   padding: 20px 0px 15px;
   margin-top: 1rem;
 }
@@ -206,14 +183,12 @@ span {
   cursor: pointer;
 }
 
-/*** footer ***/
-
 footer {
   margin-top: 15px;
 }
 
 .foot-panel1 {
-  background-color: #37475a;
+  background-color: #4a383b; /* Dark rose gold background */
   height: 50px;
   display: flex;
   justify-content: center;
@@ -223,9 +198,9 @@ footer {
 }
 
 .foot-panel2 {
-  background-color: #222f3d;
+  background-color: #2b2023; /* Darker rose gold background */
   color: white;
-  height: 300px;
+  height: 180px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -238,11 +213,11 @@ ul a {
   display: block;
   font-size: 0.85rem;
   margin-top: 10px;
-  color: #dddddd;
+  color: #b3a7ab; /* Light rose gold text */
 }
 
 .foot-panel3 {
-  background-color: #222f3d;
+  background-color: #2b2023; /* Darker rose gold background */
   color: white;
   border: 0.5px solid gray;
   height: 70px;
@@ -252,7 +227,7 @@ ul a {
 }
 
 .foot-panel4 {
-  background-color: #0f1111;
+  background-color: #1d1316; /* Darkest rose gold background */
   color: white;
   height: 70px;
   font-size: 0.7rem;
