@@ -1,17 +1,6 @@
 <?php
-// Assuming you have a database connection established
-$hostname = "127.0.0.1"; // Hostname
-$username = "myadmin"; // MySQL username
-$password = "Skrish_73"; // MySQL password
-$database = "nkjewels"; // MySQL database name
 
-// Create connection
-$connection = new mysqli($hostname, $username, $password, $database);
-
-// Check connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
+include 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -19,24 +8,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Simple validation example (checking for empty fields and minimum password length)
     if (empty($username) || empty($password)) {
-        header("Location: login.html");
+        echo '<script>alert("Please Enter username and password")</script>';
+        echo '<script>window.location.href = "login.html";</script>';
         exit(); // Stop further execution
     }
 
     // Prepare and execute the SQL query using prepared statements
-    $query = "SELECT username, password FROM users WHERE username = ? AND password = ?";
+    $query = "SELECT username, hashed_password , email FROM users WHERE username = ?";
     $stmt = $connection->prepare($query);
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // Later, when verifying the password
+    
+
     if ($result->num_rows == 1) {
+        
+        $row = $result->fetch_assoc();
+        // Accessing data from the fetched row
+        $hashed_password = $row['hashed_password'];
+        // Verify the password
+        if (password_verify($password, $hashed_password)) {
+            // Password is correct
+            session_start();
+            $_SESSION['email'] = $row['email'];
+            echo '<script>alert("Login Successfull")</script>';
+            echo '<script>window.location.href = "homepage.php";</script>';
+            exit(); // Stop further execution
+        } else {
+            echo '<script>alert("Invalid Credentials")</script>';
+            echo '<script>window.location.href = "login.html";</script>';
+            exit(); // Stop further execution
+        }
         // Login successful
-        header("Location: index.html");
-        exit(); // Stop further execution
+        
     } else {
         // Login failed
-        header("Location: login.html");
+        echo '<script>alert("Invalid Credentials")</script>';
+        echo '<script>window.location.href = "login.html";</script>';
         exit(); // Stop further execution
     }
 }

@@ -18,3 +18,26 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // If validation passes, submit the form
     this.submit();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const signInButton = document.querySelector("#signUp button:first-of-type");
+    const signUpButton = document.querySelector("#signIn button:last-of-type");
+    const signInForm = document.getElementById("signIn");
+    const signUpForm = document.getElementById("signUp");
+
+    signInButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        signInForm.classList.add("active");
+        signUpForm.classList.remove("active");
+    });
+
+    signUpButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        signInForm.classList.remove("active");
+        signUpForm.classList.add("active");
+    });
+});
+
+function topFunction() {
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

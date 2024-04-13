@@ -19,10 +19,11 @@
 }
 
 .logo {
-  background-image: url("");
+  background-image: url("jewelleryAssets/Logo.png");
   background-size: cover;
   height: 50px;
   width: 100px;
+  align-items: center;
 }
 
 .border {
@@ -93,6 +94,12 @@ span {
   font-size: 0.72rem;
 }
 
+#greet{
+  color: #8c7176;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .nav-second {
   font-size: 0.88rem;
   font-weight: 700;
@@ -127,7 +134,7 @@ span {
 }
 
 .hero-section {
-  background-image: url("jewelleryAssets/banner.webp");
+  background-image: url("jewelleryAssets/Banner.png");
   height: 700px;
   background-size: cover;
   display: flex;
@@ -159,7 +166,7 @@ span {
 }
 
 .box {
-  height: 400px;
+  height: 440px;
   width: 22%;
   background-color: #fff; /* White background */
   padding: 20px 0px 15px;
@@ -182,6 +189,21 @@ span {
   color: #007185;
   cursor: pointer;
 }
+
+.shop-section a {
+  display: inline-block;
+  background-color: lightgray; 
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Add padding for spacing */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.shop-section a:hover {
+  background-color: #ff6a36; /* Darker orange on hover */
+}
+
 
 footer {
   margin-top: 15px;

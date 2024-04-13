@@ -1,3 +1,8 @@
+<?php 
+session_start();
+include 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +17,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- <script src="script.js"></script> -->
+    <script src="validation.js"></script>
   </head>
 
   <body>
@@ -50,11 +55,23 @@
           </div>
         </div>
 
-        <div class="nav-signin border">
-          <a href="login.html">
-            <p><span>Hello, sign in</span></p>
-            <p class="nav-second">Account</p>
-          </a>
+        <div class="nav-signin border">  
+            <?php
+                if(isset($_SESSION['email'])) {
+                  $email = $_SESSION['email'];
+                  $query = mysqli_query($connection, "SELECT users.* FROM `users` WHERE users.email = '$email'");
+                  $row = mysqli_fetch_array($query);
+                  echo "<a href='logout.php' id='greet'>
+                    <p><span>Hello, </span></p>
+                    <p class='nav-second'>" . $row['name'] . "</p>
+                  </a>";
+                } else{
+                  echo "<a href='login.php' id='greet'>
+                    <p><span>Hello, sign In</span></p>
+                    <p class='nav-second'>Account</p>
+                  </a>";
+                }
+            ?>
         </div>
 
         <div class="nav-retun border">
@@ -91,25 +108,14 @@
       <div class="hero-section">
         <div class="hero-msg">
           <p>
-            You are on Juelri. You can shop on juelri India for
+            You are on NKJewels. You can shop on NKJewels India for
             thousands of designed juelris with fast local delivery.
-            <a>Click here to go to juelri.in</a>
+            <a href="homepage.php">Click here to go to NKJewels.in</a>
           </p>
         </div>
       </div>
 
       <div class="shop-section">
-        <!-- <div class="box">
-          <div class="box-content">
-            <h2>Everyday Wear</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card6.webp')"
-            ></div>
-            <p>See More</p>
-          </div>
-        </div> -->
-
         <div class="box">
           <div class="box-content">
             <h2>Ear Rings</h2>
@@ -196,80 +202,20 @@
             <p><a href="seeMore/rings.html">See More</a></p>
           </div>
         </div>
-
-        <!-- <div class="box">
-          <div class="box-content">
-            <h2>Pet Care</h2>
-            <div
-              class="box-img"
-              style="background-image: url('images/box6_image.jpg')"
-            ></div>
-            <p>See More</p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>New Arrival in Toys</h2>
-            <div
-              class="box-img"
-              style="background-image: url('images/box7_image.jpg')"
-            ></div>
-            <p>See More</p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Discover New Trends</h2>
-            <div
-              class="box-img"
-              style="background-image: url('images/box8_image.jpg')"
-            ></div>
-            <p>See More</p>
-          </div>
-        </div> -->
       </div>
     </main>
 
     <footer>
-      <div class="foot-panel1">Back To Top</div>
+      <div class="foot-panel1"><button onclick="topFunction()">Back To Top</button></div>
 
       <div class="foot-panel2">
         <ul>
           <p>Get to Know Us</p>
           <a>Careers</a>
           <a>Blog</a>
-          <a>About Juelri</a>
+          <a>About NKJewels</a>
           <a>Investor Relations</a> 
         </ul>
-        <!-- <ul>
-          <p>Get to Know Us</p>
-          <a>Careers</a>
-          <a>Blog</a>
-          <a>About NOTmazon</a>
-          <a>Investor Relations</a>
-          <a>NOTmazon Devices</a>
-          <a>NOTmazon Science</a>
-        </ul>
-        <ul>
-          <p>Get to Know Us</p>
-          <a>Careers</a>
-          <a>Blog</a>
-          <a>About NOTmazon</a>
-          <a>Investor Relations</a>
-          <a>NOTmazon Devices</a>
-          <a>NOTmazon Science</a>
-        </ul>
-        <ul>
-          <p>Get to Know Us</p>
-          <a>Careers</a>
-          <a>Blog</a>
-          <a>About NOTmazon</a>
-          <a>Investor Relations</a>
-          <a>NOTmazon Devices</a>
-          <a>NOTmazon Science</a>
-        </ul> -->
       </div>
 
       <div class="foot-panel3">
@@ -283,18 +229,9 @@
           <a>Your Ads Privacy Choices</a>
         </div>
         <div class="copyright">
-          © 1996-2024, Juelri.com, Inc. or its affiliates
+          © 1996-2024, NKJewels.com, Inc. or its affiliates
         </div>
       </div>
     </footer>
   </body>
 </html>
-
-<!-- <div class="language-select">
-        <div class="language-icon">
-          <i class="fa-solid fa-language"></i>
-          </div>
-        <select class="language">
-          <option>En</option>          
-        </select>
-      </div> -->
