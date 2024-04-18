@@ -1,8 +1,15 @@
-<?php 
+<?php
 session_start();
 include 'connect.php';
-?>
 
+// if(isset($_SESSION['email'])) {
+//   $user_id = $_SESSION['email'];
+//   $query = "SELECT products.*, cart.quantity FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.user_id = $user_id";
+//   $result = mysqli_query($connection, $query);
+// }
+
+// Display cart contents in a table
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,13 +25,47 @@ include 'connect.php';
     />
     <link rel="stylesheet" href="style.css" />
     <script src="validation.js"></script>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+    
+    </style>
   </head>
 
   <body>
     <header>
       <div class="navbar">
         <div class="nav-logo border">
-          <a href="index.html">
+        <a href="./homepage.php">
           <div class="logo"></div>
           </a>
         </div>
@@ -104,118 +145,41 @@ include 'connect.php';
         <div class="panel-deals"><a href="api.php" style="color: white; text-decoration: none;">Metal Rates</a></div>
       </div>
     </header>
-
-    <main>
-      <div class="hero-section">
-        <div class="hero-msg">
-          <p>
-            You are on NKJewels. You can shop on NKJewels India for
-            thousands of designed juelris with fast local delivery.
-            <a href="homepage.php">Click here to go to NKJewels.in</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="shop-section">
-        <div class="box">
-          <div class="box-content">
-            <h2>Ear Rings</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card7.webp')"
-            ></div>
-            <p><a href="seeMore/earRings.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Necklace</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/Card3.webp')"
-            ></div>
-            <p><a href="seeMore/necklace.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Braclets</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card8.jpg')"
-            ></div>
-            <p><a href="seeMore/braclets.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Rings</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card8.webp')"
-            ></div>
-            <p><a href="seeMore/rings.php">See More</a></p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="box-content">
-            <h2>Ear Rings</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card7.webp')"
-            ></div>
-            <p><a href="seeMore/earRings.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Necklace</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/Card3.webp')"
-            ></div>
-            <p><a href="seeMore/necklace.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Braclets</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card8.jpg')"
-            ></div>
-            <p><a href="seeMore/braclets.php">See More</a></p>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="box-content">
-            <h2>Rings</h2>
-            <div
-              class="box-img"
-              style="background-image: url('jewelleryAssets/card8.webp')"
-            ></div>
-            <p><a href="seeMore/rings.php">See More</a></p>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
+<body>
+  <h1>Cart</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+    //   while($row = mysqli_fetch_assoc($result)) {
+    //     echo "<tr>";
+    //     echo "<td>".$row['product_id']."</td>";
+    //     echo "<td>".$row['name']."</td>";
+    //     echo "<td>".$row['price']."</td>";
+    //     echo "<td>".$row['quantity']."</td>";
+    //     echo "</tr>";
+    //   }
+      ?>
+    </tbody>
+  </table>
+</body>
+<footer style = "position: absolute; bottom: 0; width: 100%;">
       <div class="foot-panel1"><button onclick="topFunction()">Back To Top</button></div>
 
       <div class="foot-panel2">
         <ul>
           <p>Get to Know Us</p>
-          <a href="./About/AboutNkJewels.html">Careers</a>
-          <a href="./About/AboutNkJewels.html">Blog</a>
-          <a href="./About/AboutNkJewels.html">About NKJewels</a>
-          <a href="./About/AboutNkJewels.html">Investor Relations</a> 
+          <a>Careers</a>
+          <a>Blog</a>
+          <a>About NKJewels</a>
+          <a>Investor Relations</a> 
         </ul>
       </div>
 
@@ -234,5 +198,4 @@ include 'connect.php';
         </div>
       </div>
     </footer>
-  </body>
 </html>
